@@ -299,7 +299,7 @@ class Line extends graphic.Group {
             defaultOpacity: lineStyle.opacity,
             defaultText: (rawVal == null
                 ? lineData.getName(idx)
-                : isFinite(rawVal)
+                : Number.isFinite(rawVal)
                 ? round(rawVal)
                 : rawVal) + ''
         });

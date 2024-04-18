@@ -176,10 +176,10 @@ export function getAvailableSize(
     let x2 = parsePercent(positionInfo.right, containerWidth);
     let y2 = parsePercent(positionInfo.bottom, containerHeight);
 
-    (isNaN(x) || isNaN(parseFloat(positionInfo.left as string))) && (x = 0);
-    (isNaN(x2) || isNaN(parseFloat(positionInfo.right as string))) && (x2 = containerWidth);
-    (isNaN(y) || isNaN(parseFloat(positionInfo.top as string))) && (y = 0);
-    (isNaN(y2) || isNaN(parseFloat(positionInfo.bottom as string))) && (y2 = containerHeight);
+    (Number.isNaN(x) || Number.isNaN(parseFloat(positionInfo.left as string))) && (x = 0);
+    (Number.isNaN(x2) || Number.isNaN(parseFloat(positionInfo.right as string))) && (x2 = containerWidth);
+    (Number.isNaN(y) || Number.isNaN(parseFloat(positionInfo.top as string))) && (y = 0);
+    (Number.isNaN(y2) || Number.isNaN(parseFloat(positionInfo.bottom as string))) && (y2 = containerHeight);
 
     margin = formatUtil.normalizeCssArray(margin || 0);
 
@@ -216,10 +216,10 @@ export function getLayoutRect(
     const aspect = positionInfo.aspect;
 
     // If width is not specified, calculate width from left and right
-    if (isNaN(width)) {
+    if (Number.isNaN(width)) {
         width = containerWidth - right - horizontalMargin - left;
     }
-    if (isNaN(height)) {
+    if (Number.isNaN(height)) {
         height = containerHeight - bottom - verticalMargin - top;
     }
 
@@ -231,7 +231,7 @@ export function getLayoutRect(
         // FIXME
         // Margin is not considered, because there is no case that both
         // using margin and aspect so far.
-        if (isNaN(width) && isNaN(height)) {
+        if (Number.isNaN(width) && Number.isNaN(height)) {
             if (aspect > containerWidth / containerHeight) {
                 width = containerWidth * 0.8;
             }
@@ -241,19 +241,19 @@ export function getLayoutRect(
         }
 
         // Calculate width or height with given aspect
-        if (isNaN(width)) {
+        if (Number.isNaN(width)) {
             width = aspect * height;
         }
-        if (isNaN(height)) {
+        if (Number.isNaN(height)) {
             height = width / aspect;
         }
     }
 
     // If left is not specified, calculate left from right and width
-    if (isNaN(left)) {
+    if (Number.isNaN(left)) {
         left = containerWidth - right - width - horizontalMargin;
     }
-    if (isNaN(top)) {
+    if (Number.isNaN(top)) {
         top = containerHeight - bottom - height - verticalMargin;
     }
 
@@ -278,11 +278,11 @@ export function getLayoutRect(
     // If something is wrong and left, top, width, height are calculated as NaN
     left = left || 0;
     top = top || 0;
-    if (isNaN(width)) {
+    if (Number.isNaN(width)) {
         // Width may be NaN if only one value is given except width
         width = containerWidth - horizontalMargin - left - (right || 0);
     }
-    if (isNaN(height)) {
+    if (Number.isNaN(height)) {
         // Height may be NaN if only one value is given except height
         height = containerHeight - verticalMargin - top - (bottom || 0);
     }

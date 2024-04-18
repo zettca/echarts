@@ -198,8 +198,8 @@ export class ScaleRawExtentInfo {
                 : dataMax + boundaryGapInner[1] * span;
         }
 
-        (min == null || !isFinite(min)) && (min = NaN);
-        (max == null || !isFinite(max)) && (max = NaN);
+        (min == null || !Number.isFinite(min)) && (min = NaN);
+        (max == null || !Number.isFinite(max)) && (max = NaN);
 
         const isBlank = eqNaN(min)
             || eqNaN(max)

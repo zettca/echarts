@@ -113,8 +113,8 @@ function clamp(
 export function fixExtent(
     niceTickExtent: [number, number], extent: [number, number]
 ): void {
-    !isFinite(niceTickExtent[0]) && (niceTickExtent[0] = extent[0]);
-    !isFinite(niceTickExtent[1]) && (niceTickExtent[1] = extent[1]);
+    !Number.isFinite(niceTickExtent[0]) && (niceTickExtent[0] = extent[0]);
+    !Number.isFinite(niceTickExtent[1]) && (niceTickExtent[1] = extent[1]);
     clamp(niceTickExtent, 0, extent);
     clamp(niceTickExtent, 1, extent);
     if (niceTickExtent[0] > niceTickExtent[1]) {

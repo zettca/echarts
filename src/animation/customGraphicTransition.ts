@@ -615,9 +615,9 @@ function prepareStyleTransitionFrom(
 }
 
 function isNonStyleTransitionEnabled(optVal: unknown, elVal: unknown): boolean {
-    // The same as `checkNonStyleTansitionRefer`.
+    // The same as `checkNonStyleTransitionRefer`.
     return !isArrayLike(optVal)
-        ? (optVal != null && isFinite(optVal as number))
+        ? (optVal != null && Number.isFinite(Number(optVal)))
         : optVal !== elVal;
 }
 

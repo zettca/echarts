@@ -29,7 +29,7 @@ export default function negativeDataFilter(seriesType: string): StageHandler {
                 // handle negative value condition
                 const valueDim = data.mapDimension('value');
                 const curValue = data.get(valueDim, idx);
-                if (isNumber(curValue) && !isNaN(curValue) && curValue < 0) {
+                if (isNumber(curValue) && !Number.isNaN(curValue) && curValue < 0) {
                     return false;
                 }
                 return true;

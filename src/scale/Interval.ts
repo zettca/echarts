@@ -56,10 +56,10 @@ class IntervalScale<SETTING extends Dictionary<unknown> = Dictionary<unknown>> e
     setExtent(start: number | string, end: number | string): void {
         const thisExtent = this._extent;
         // start,end may be a Number like '25',so...
-        if (!isNaN(start as any)) {
+        if (!Number.isNaN(Number(start))) {
             thisExtent[0] = parseFloat(start as any);
         }
-        if (!isNaN(end as any)) {
+        if (!Number.isNaN(Number(end))) {
             thisExtent[1] = parseFloat(end as any);
         }
     }
@@ -219,7 +219,7 @@ class IntervalScale<SETTING extends Dictionary<unknown> = Dictionary<unknown>> e
         splitNumber = splitNumber || 5;
         const extent = this._extent;
         let span = extent[1] - extent[0];
-        if (!isFinite(span)) {
+        if (!Number.isFinite(span)) {
             return;
         }
         // User may set axis min 0 and data are all negative
@@ -271,7 +271,7 @@ class IntervalScale<SETTING extends Dictionary<unknown> = Dictionary<unknown>> e
         }
         const span = extent[1] - extent[0];
         // If there are no data and extent are [Infinity, -Infinity]
-        if (!isFinite(span)) {
+        if (!Number.isFinite(span)) {
             extent[0] = 0;
             extent[1] = 1;
         }

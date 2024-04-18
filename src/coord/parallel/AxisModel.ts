@@ -116,7 +116,7 @@ class ParallelAxisModel extends ComponentModel<ParallelAxisOption> {
             return 'normal';
         }
 
-        if (value == null || isNaN(+value)) {
+        if (value == null || Number.isNaN(Number(value))) {
             return 'inactive';
         }
 

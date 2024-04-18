@@ -2394,13 +2394,13 @@ class ECharts extends Eventful<ECEventDefinition> {
                 label.zlevel = zlevel;
                 // lift z2 of text content
                 // TODO if el.emphasis.z2 is spcefied, what about textContent.
-                isFinite(maxZ2) && (label.z2 = maxZ2 + 2);
+                Number.isFinite(maxZ2) && (label.z2 = maxZ2 + 2);
             }
             if (labelLine) {
                 const textGuideLineConfig = el.textGuideLineConfig;
                 labelLine.z = z;
                 labelLine.zlevel = zlevel;
-                isFinite(maxZ2)
+                Number.isFinite(maxZ2)
                     && (labelLine.z2 = maxZ2 + (textGuideLineConfig && textGuideLineConfig.showAbove ? 1 : -1));
             }
             return maxZ2;
@@ -2935,7 +2935,7 @@ function normalizeRegister(
     }
 
     if (__DEV__) {
-        if (isNaN(priority) || priority == null) {
+        if (Number.isNaN(priority) || priority == null) {
             throw new Error('Illegal priority');
         }
         // Check duplicate

@@ -29,7 +29,7 @@ const samplers: Dictionary<Sampler> = {
         let sum = 0;
         let count = 0;
         for (let i = 0; i < frame.length; i++) {
-            if (!isNaN(frame[i])) {
+            if (!Number.isNaN(frame[i])) {
                 sum += frame[i];
                 count++;
             }
@@ -51,7 +51,7 @@ const samplers: Dictionary<Sampler> = {
             frame[i] > max && (max = frame[i]);
         }
         // NaN will cause illegal axis extent.
-        return isFinite(max) ? max : NaN;
+        return Number.isFinite(max) ? max : NaN;
     },
     min: function (frame) {
         let min = Infinity;
@@ -59,7 +59,7 @@ const samplers: Dictionary<Sampler> = {
             frame[i] < min && (min = frame[i]);
         }
         // NaN will cause illegal axis extent.
-        return isFinite(min) ? min : NaN;
+        return Number.isFinite(min) ? min : NaN;
     },
     minmax: function (frame) {
         let turningPointAbsoluteValue = -Infinity;
@@ -75,7 +75,7 @@ const samplers: Dictionary<Sampler> = {
             }
         }
 
-        return isFinite(turningPointOriginalValue) ? turningPointOriginalValue : NaN;
+        return Number.isFinite(turningPointOriginalValue) ? turningPointOriginalValue : NaN;
     },
     // TODO
     // Median
@@ -111,7 +111,7 @@ export default function dataSample(seriesType: string): StageHandler {
                 const size = Math.abs(extent[1] - extent[0]) * (dpr || 1);
                 const rate = Math.round(count / size);
 
-                if (isFinite(rate) && rate > 1) {
+                if (Number.isFinite(rate) && rate > 1) {
                     if (sampling === 'lttb') {
                         seriesModel.setData(data.lttbDownSample(data.mapDimension(valueAxis.dim), 1 / rate));
                     }

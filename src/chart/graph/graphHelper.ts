@@ -42,6 +42,6 @@ export function getSymbolSize(node: GraphNode) {
     if (symbolSize instanceof Array) {
         symbolSize = (symbolSize[0] + symbolSize[1]) / 2;
     }
-    return +symbolSize;
+    return Number(symbolSize);
 }
 

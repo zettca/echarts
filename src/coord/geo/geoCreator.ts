@@ -47,8 +47,8 @@ function resizeGeo(this: Geo, geoModel: ComponentModel<GeoOption | MapSeriesOpti
         let leftTop = boundingCoords[0];
         let rightBottom = boundingCoords[1];
         if (!(
-            isFinite(leftTop[0]) && isFinite(leftTop[1])
-            && isFinite(rightBottom[0]) && isFinite(rightBottom[1])
+            Number.isFinite(leftTop[0]) && Number.isFinite(leftTop[1])
+            && Number.isFinite(rightBottom[0]) && Number.isFinite(rightBottom[1])
         )) {
             if (__DEV__) {
                 console.error('Invalid boundingCoords');

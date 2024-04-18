@@ -290,7 +290,7 @@ class DataStore {
         // Parse from previous data offset. len may be changed after appendData
         for (let i = offset; i < len; i++) {
             const val = (chunk as any)[i] = ordinalMeta.parseAndCollect(chunk[i]);
-            if (!isNaN(val)) {
+            if (!Number.isNaN(val)) {
                 dimRawExtent[0] = Math.min(val, dimRawExtent[0]);
                 dimRawExtent[1] = Math.max(val, dimRawExtent[1]);
             }
@@ -492,7 +492,7 @@ class DataStore {
         if (dimData) {
             for (let i = 0, len = this.count(); i < len; i++) {
                 const value = this.get(dim, i) as number;
-                if (!isNaN(value)) {
+                if (!Number.isNaN(value)) {
                     sum += value;
                 }
             }
@@ -507,7 +507,7 @@ class DataStore {
         const dimDataArray: ParsedValue[] = [];
         // map all data of one dimension
         this.each([dim], function (val) {
-            if (!isNaN(val as number)) {
+            if (!Number.isNaN(Number(val))) {
                 dimDataArray.push(val);
             }
         });
@@ -756,7 +756,7 @@ class DataStore {
                     // but the axis extent may be effected if some other dim of the data
                     // item has value. Fortunately it is not a significant negative effect.
                     if (
-                        (val >= min && val <= max) || isNaN(val as any)
+                        (val >= min && val <= max) || Number.isNaN(val as any)
                     ) {
                         newIndices[offset++] = idx;
                     }
@@ -774,10 +774,10 @@ class DataStore {
                     const val2 = dimStorage2[i];
                     // Do not filter NaN, see comment above.
                     if ((
-                            (val >= min && val <= max) || isNaN(val as any)
+                            (val >= min && val <= max) || Number.isNaN(Number(val))
                         )
                         && (
-                            (val2 >= min2 && val2 <= max2) || isNaN(val2 as any)
+                            (val2 >= min2 && val2 <= max2) || Number.isNaN(Number(val2))
                         )
                     ) {
                         newIndices[offset++] = idx;
@@ -794,7 +794,7 @@ class DataStore {
                     const val = storeArr[dims[0]][rawIndex];
                     // Do not filter NaN, see comment above.
                     if (
-                        (val >= min && val <= max) || isNaN(val as any)
+                        (val >= min && val <= max) || Number.isNaN(Number(val))
                     ) {
                         newIndices[offset++] = rawIndex;
                     }
@@ -951,7 +951,7 @@ class DataStore {
             for (let idx = nextFrameStart; idx < nextFrameEnd; idx++) {
                 const rawIndex = this.getRawIndex(idx);
                 const y = dimStore[rawIndex] as number;
-                if (isNaN(y)) {
+                if (Number.isNaN(y)) {
                     continue;
                 }
                 avgY += y as number;
@@ -975,7 +975,7 @@ class DataStore {
             for (let idx = frameStart; idx < frameEnd; idx++) {
                 const rawIndex = this.getRawIndex(idx);
                 const y = dimStore[rawIndex] as number;
-                if (isNaN(y)) {
+                if (Number.isNaN(y)) {
                     countNaN++;
                     if (firstNaNIndex < 0) {
                         firstNaNIndex = rawIndex;

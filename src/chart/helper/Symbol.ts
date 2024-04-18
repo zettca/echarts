@@ -342,8 +342,8 @@ class Symbol extends graphic.Group {
             hoverScale == null || hoverScale === true
                 ? Math.max(1.1, 3 / this._sizeY)
                 // PENDING: restrict hoverScale > 1? It seems unreasonable to scale down
-                : isFinite(hoverScale as number) && hoverScale > 0
-                    ? +hoverScale
+                : Number.isFinite(Number(hoverScale)) && hoverScale > 0
+                    ? Number(hoverScale)
                     : 1;
         // always set scale to allow resetting
         emphasisState.scaleX = this._sizeX * scaleRatio;

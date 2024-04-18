@@ -445,7 +445,7 @@ export function limitTurnAngle(linePoints: number[][], minTurnAngle: number) {
         const t = pt2.x !== pt1.x
             ? (tmpProjPoint.x - pt1.x) / (pt2.x - pt1.x)
             : (tmpProjPoint.y - pt1.y) / (pt2.y - pt1.y);
-        if (isNaN(t)) {
+        if (Number.isNaN(t)) {
             return;
         }
 
@@ -509,7 +509,7 @@ export function limitSurfaceAngle(linePoints: vector.VectorArray[], surfaceNorma
             const t = pt2.x !== pt1.x
                 ? (tmpProjPoint.x - pt1.x) / (pt2.x - pt1.x)
                 : (tmpProjPoint.y - pt1.y) / (pt2.y - pt1.y);
-            if (isNaN(t)) {
+            if (Number.isNaN(t)) {
                 return;
             }
 

@@ -911,7 +911,7 @@ function projectPolys(
         lineEnd: endPolygon,
         point(x, y) {
             // May have NaN values from stream.
-            if (isFinite(x) && isFinite(y)) {
+            if (Number.isFinite(x) && Number.isFinite(y)) {
                 curPoly.push([x, y]);
             }
         },

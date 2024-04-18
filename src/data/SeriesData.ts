@@ -434,7 +434,7 @@ class SeriesData<
             // If being a number-like string but not being defined as a dimension name.
             || (
                 dim != null
-                && !isNaN(dim as any)
+                && !Number.isNaN(Number(dim))
                 && !this._getDimInfo(dim)
                 && (!this._dimOmitted || this._schema.getSourceDimensionIndex(dim) < 0)
             )
@@ -825,7 +825,7 @@ class SeriesData<
             // Ordinal type originally can be string or number.
             // But when an ordinal type is used on coord, it can
             // not be string but only number. So we can also use isNaN.
-            if (isNaN(this._store.get(dataDimIndicesOnCoord[i], idx) as any)) {
+            if (Number.isNaN(Number(this._store.get(dataDimIndicesOnCoord[i], idx)))) {
                 return false;
             }
         }
@@ -867,7 +867,7 @@ class SeriesData<
             }
         }
         const rawIndex = invertedIndices[value];
-        if (rawIndex == null || isNaN(rawIndex)) {
+        if (rawIndex == null || Number.isNaN(rawIndex)) {
             return INDEX_NOT_FOUND;
         }
         return rawIndex;

@@ -45,7 +45,7 @@ function updateBBoxFromPoints(
             // projection may return null point.
             p = projection.project(p as number[]);
         }
-        if (p && isFinite(p[0]) && isFinite(p[1])) {
+        if (p && Number.isFinite(p[0]) && Number.isFinite(p[1])) {
             vec2.min(min, min, p as vec2.VectorArray);
             vec2.max(max, max, p as vec2.VectorArray);
         }

@@ -213,8 +213,8 @@ class GaugeView extends ChartView {
         const cy = posInfo.cy;
         const r = posInfo.r;
 
-        const minVal = +seriesModel.get('min');
-        const maxVal = +seriesModel.get('max');
+        const minVal = Number(seriesModel.get('min'));
+        const maxVal = Number(seriesModel.get('max'));
 
         const splitLineModel = seriesModel.getModel('splitLine');
         const tickModel = seriesModel.getModel('axisTick');
@@ -386,8 +386,8 @@ class GaugeView extends ChartView {
 
         const data = seriesModel.getData();
         const valueDim = data.mapDimension('value');
-        const minVal = +seriesModel.get('min');
-        const maxVal = +seriesModel.get('max');
+        const minVal = Number(seriesModel.get('min'));
+        const maxVal = Number(seriesModel.get('max'));
         const valueExtent = [minVal, maxVal];
         const angleExtent = [startAngle, endAngle];
 
@@ -609,8 +609,8 @@ class GaugeView extends ChartView {
     ) {
         const data = seriesModel.getData();
         const valueDim = data.mapDimension('value');
-        const minVal = +seriesModel.get('min');
-        const maxVal = +seriesModel.get('max');
+        const minVal = Number(seriesModel.get('min'));
+        const maxVal = Number(seriesModel.get('max'));
 
         const contentGroup = new graphic.Group();
 

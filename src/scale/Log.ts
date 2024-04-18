@@ -146,7 +146,7 @@ class LogScale extends Scale {
         }
 
         // Interval should be integer
-        while (!isNaN(interval) && Math.abs(interval) < 1 && Math.abs(interval) > 0) {
+        while (!Number.isNaN(interval) && Math.abs(interval) < 1 && Math.abs(interval) > 0) {
             interval *= 10;
         }
 

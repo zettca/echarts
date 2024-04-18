@@ -273,8 +273,8 @@ export function calculateCategoryInterval(axis: Axis) {
     let dw = maxW / unitW;
     let dh = maxH / unitH;
     // 0/0 is NaN, 1/0 is Infinity.
-    isNaN(dw) && (dw = Infinity);
-    isNaN(dh) && (dh = Infinity);
+    Number.isNaN(dw) && (dw = Infinity);
+    Number.isNaN(dh) && (dh = Infinity);
     let interval = Math.max(0, Math.floor(Math.min(dw, dh)));
 
     const cache = inner(axis.model);

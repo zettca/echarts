@@ -353,7 +353,7 @@ function initializeNodeDepth(
     });
 
     zrUtil.each(edges, function (edge) {
-        const edgeDy = +edge.getValue() * minKy;
+        const edgeDy = Number(edge.getValue()) * minKy;
         edge.setLayout({dy: edgeDy}, true);
     });
 }

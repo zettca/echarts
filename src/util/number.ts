@@ -22,7 +22,7 @@
 * The method "quantile" was copied from "d3.js".
 * (See more details in the comment of the method below.)
 * The use of the source code of this file is also subject to the terms
-* and consitions of the license of "d3.js" (BSD-3Clause, see
+* and conditions of the license of "d3.js" (BSD-3Clause, see
 * </licenses/LICENSE-d3>).
 */
 
@@ -162,8 +162,8 @@ export function asc<T extends number[]>(arr: T): T {
  * Get precision.
  */
 export function getPrecision(val: string | number): number {
-    val = +val;
-    if (isNaN(val)) {
+    val = Number(val);
+    if (Number.isNaN(val)) {
         return 0;
     }
 
@@ -214,7 +214,7 @@ export function getPixelPrecision(dataExtent: [number, number], pixelExtent: [nu
     const sizeQuantity = Math.round(log(Math.abs(pixelExtent[1] - pixelExtent[0])) / LN10);
     // toFixed() digits argument must be between 0 and 20.
     const precision = Math.min(Math.max(-dataQuantity + sizeQuantity, 0), 20);
-    return !isFinite(precision) ? 20 : precision;
+    return !Number.isFinite(precision) ? 20 : precision;
 }
 
 /**
@@ -250,7 +250,7 @@ export function getPercentWithPrecision(valueList: number[], idx: number, precis
  */
 export function getPercentSeats(valueList: number[], precision: number): number[] {
     const sum = zrUtil.reduce(valueList, function (acc, val) {
-        return acc + (isNaN(val) ? 0 : val);
+        return acc + (Number.isNaN(Number(val)) ? 0 : val);
     }, 0);
     if (sum === 0) {
         return [];
@@ -258,7 +258,7 @@ export function getPercentSeats(valueList: number[], precision: number): number[
 
     const digits = Math.pow(10, precision);
     const votesPerQuota = zrUtil.map(valueList, function (val) {
-        return (isNaN(val) ? 0 : val) / sum * digits * 100;
+        return (Number.isNaN(Number(val)) ? 0 : val) / sum * digits * 100;
     });
     const targetSeats = digits * 100;
 
@@ -610,7 +610,7 @@ export function numericToNumber(val: unknown): number {
  * Definition of "numeric": see `numericToNumber`.
  */
 export function isNumeric(val: unknown): val is number {
-    return !isNaN(numericToNumber(val));
+    return !Number.isNaN(numericToNumber(val));
 }
 
 /**

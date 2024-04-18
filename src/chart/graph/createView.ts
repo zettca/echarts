@@ -45,7 +45,7 @@ export default function createViewCoordSys(ecModel: GlobalModel, api: ExtensionA
             const data = seriesModel.getData();
             const positions = data.mapArray(function (idx) {
                 const itemModel = data.getItemModel<GraphNodeItemOption>(idx);
-                return [+itemModel.get('x'), +itemModel.get('y')];
+                return [Number(itemModel.get('x')), Number(itemModel.get('y'))];
             });
 
             let min: number[] = [];

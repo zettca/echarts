@@ -838,7 +838,7 @@ class LineView extends ChartView {
 
         if (polyline.style.lineWidth > 0 && seriesModel.get(['emphasis', 'lineStyle', 'width']) === 'bolder') {
             const emphasisLineStyle = polyline.getState('emphasis').style;
-            emphasisLineStyle.lineWidth = +polyline.style.lineWidth + 1;
+            emphasisLineStyle.lineWidth = Number(polyline.style.lineWidth) + 1;
         }
 
         // Needs seriesIndex for focus

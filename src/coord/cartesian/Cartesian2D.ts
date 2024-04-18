@@ -125,9 +125,9 @@ class Cartesian2D extends Cartesian<Axis2D> implements CoordinateSystem {
         if (this._transform
             // It's supported that if data is like `[Inifity, 123]`, where only Y pixel calculated.
             && xVal != null
-            && isFinite(xVal as number)
+            && Number.isFinite(Number(xVal))
             && yVal != null
-            && isFinite(yVal as number)
+            && Number.isFinite(Number(yVal))
         ) {
             return applyTransform(out, data as number[], this._transform);
         }

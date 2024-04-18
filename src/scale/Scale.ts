@@ -109,10 +109,10 @@ abstract class Scale<SETTING extends Dictionary<unknown> = Dictionary<unknown>> 
      */
     setExtent(start: number, end: number): void {
         const thisExtent = this._extent;
-        if (!isNaN(start)) {
+        if (!Number.isNaN(start)) {
             thisExtent[0] = start;
         }
-        if (!isNaN(end)) {
+        if (!Number.isNaN(end)) {
             thisExtent[1] = end;
         }
     }

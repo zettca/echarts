@@ -155,7 +155,7 @@ const markLineTransform = function (
 };
 
 function isInfinity(val: ScaleDataValue) {
-    return !isNaN(val as number) && !isFinite(val as number);
+    return !Number.isNaN(val as number) && !Number.isFinite(Number(val));
 }
 
 // If a markLine has one dim

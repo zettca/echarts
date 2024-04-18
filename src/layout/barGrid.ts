@@ -519,7 +519,7 @@ export function createProgressiveLayout(seriesType: string): StageHandler {
                         // Because of the barMinHeight, we can not use the value in
                         // stackResultDimension directly.
                         if (stacked) {
-                            startValue = +value - (store.get(valueDimIdx, dataIndex) as number);
+                            startValue = Number(value) - Number(store.get(valueDimIdx, dataIndex));
                         }
 
                         let x;

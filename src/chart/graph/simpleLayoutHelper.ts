@@ -33,7 +33,7 @@ export function simpleLayout(seriesModel: GraphSeriesModel) {
 
     graph.eachNode(function (node) {
         const model = node.getModel<GraphNodeItemOption>();
-        node.setLayout([+model.get('x'), +model.get('y')]);
+        node.setLayout([Number(model.get('x')), Number(model.get('y'))]);
     });
 
     simpleLayoutEdge(graph, seriesModel);

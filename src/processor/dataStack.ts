@@ -96,7 +96,7 @@ function calculateStack(stackInfoList: StackInfo[]) {
 
             // Consider `connectNulls` of line area, if value is NaN, stackedOver
             // should also be NaN, to draw a appropriate belt area.
-            if (isNaN(sum)) {
+            if (Number.isNaN(sum)) {
                 return resultNaN;
             }
 

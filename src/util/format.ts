@@ -72,14 +72,14 @@ export function makeValueReadable(
         return (str && zrUtil.trim(str)) ? str : '-';
     }
     function isNumberUserReadable(num: number): boolean {
-        return !!(num != null && !isNaN(num) && isFinite(num));
+        return !!(num != null && !Number.isNaN(num) && Number.isFinite(num));
     }
 
     const isTypeTime = valueType === 'time';
     const isValueDate = value instanceof Date;
     if (isTypeTime || isValueDate) {
         const date = isTypeTime ? parseDate(value) : value;
-        if (!isNaN(+date)) {
+        if (!Number.isNaN(Number(date))) {
             return timeFormat(date, USER_READABLE_DEFUALT_TIME_PATTERN, useUTC);
         }
         else if (isValueDate) {

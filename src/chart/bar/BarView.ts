@@ -897,7 +897,7 @@ function updateRealtimeAnimation(
 
 function checkPropertiesNotValid<T extends Record<string, any>>(obj: T, props: readonly (keyof T)[]) {
     for (let i = 0; i < props.length; i++) {
-        if (!isFinite(obj[props[i]])) {
+        if (!Number.isFinite(Number(obj[props[i]]))) {
             return true;
         }
     }

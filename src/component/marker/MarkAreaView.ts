@@ -99,7 +99,7 @@ const markAreaTransform = function (
 };
 
 function isInfinity(val: ScaleDataValue) {
-    return !isNaN(val as number) && !isFinite(val as number);
+    return !Number.isNaN(val as number) && !Number.isFinite(Number(val));
 }
 
 // If a markArea has one dim

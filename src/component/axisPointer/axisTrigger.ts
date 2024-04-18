@@ -287,7 +287,7 @@ function buildPayloadsBySeries(value: AxisValue, axisInfo: CollectedAxisInfo) {
             seriesNestestValue = series.getData().get(dataDim[0], dataIndices[0]);
         }
 
-        if (seriesNestestValue == null || !isFinite(seriesNestestValue)) {
+        if (seriesNestestValue == null || !Number.isFinite(Number(seriesNestestValue))) {
             return;
         }
 

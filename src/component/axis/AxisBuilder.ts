@@ -416,7 +416,7 @@ const builders: Record<'axisLine' | 'axisTickLabel' | 'axisName', AxisElementsBu
                 axisNameAvailableWidth = Math.abs(
                     axisNameAvailableWidth / Math.sin(labelLayout.rotation)
                 );
-                !isFinite(axisNameAvailableWidth) && (axisNameAvailableWidth = null);
+                !Number.isFinite(axisNameAvailableWidth) && (axisNameAvailableWidth = null);
             }
         }
 

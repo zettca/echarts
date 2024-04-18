@@ -84,7 +84,7 @@ export function alignScaleTicks(
     else if (isMinFixed) {
         max = rawExtent[0] + interval * alignToSplitNumber;
         // User set min, expand extent on the other side
-        while (max < rawExtent[1] && isFinite(max) && isFinite(rawExtent[1])) {
+        while (max < rawExtent[1] && Number.isFinite(max) && Number.isFinite(rawExtent[1])) {
             interval = increaseInterval(interval);
             max = rawExtent[0] + interval * alignToSplitNumber;
         }
@@ -92,7 +92,7 @@ export function alignScaleTicks(
     else if (isMaxFixed) {
         // User set max, expand extent on the other side
         min = rawExtent[1] - interval * alignToSplitNumber;
-        while (min > rawExtent[0] && isFinite(min) && isFinite(rawExtent[0])) {
+        while (min > rawExtent[0] && Number.isFinite(min) && Number.isFinite(rawExtent[0])) {
             interval = increaseInterval(interval);
             min = rawExtent[1] - interval * alignToSplitNumber;
         }
